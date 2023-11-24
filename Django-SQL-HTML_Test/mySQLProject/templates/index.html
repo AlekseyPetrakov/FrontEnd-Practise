@@ -1,0 +1,16 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Result</title>
+</head>
+<body>
+    {% if person_exists is not None %}
+        {% if person_exists %}
+            <p>YES</p>
+        {% else %}
+            <p>NO</p>
+        {% endif %}
+    {% endif %}
+</body>
+</html>
