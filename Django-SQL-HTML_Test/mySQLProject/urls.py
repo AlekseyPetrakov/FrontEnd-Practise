@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import persons_list
+from .views import persons_list, index
 """
 URL configuration for mySQLProject project.
 
@@ -22,5 +22,7 @@ from django.urls import path
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('persons/', persons_list, name='persons_list'),
+    path('index/', index, name='index'),
+
 
 ]
