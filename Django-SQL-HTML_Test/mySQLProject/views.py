@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Person, Animal  # Adjust the import based on your actual models
+from .models import Person, Animal,Admin  # Adjust the import based on your actual models
 from django.http import HttpResponse
 
 
@@ -11,10 +11,13 @@ def persons_list(request):
 
 
 def index(request):
-    person_exists = None
+    admin_exists = None
 
     if request.method == 'POST':
-        fname = request.POST.get('fname')
-        person_exists = Person.objects.filter(name=fname).exists()
+        username = request.POST.get('username')
+        password = request.POST.get('password')
 
-    return render(request, 'index.html', {'person_exists': person_exists})
+        # Check if an admin with the given username and password exists
+        admin_exists = Admin.objects.filter(name=username, password=password).exists()
+
+    return render(request, 'index.html', {'admin_exists': admin_exists})

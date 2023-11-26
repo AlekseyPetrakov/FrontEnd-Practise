@@ -24,18 +24,11 @@
     <!-- Form for user input -->
     <form method="post" action="{% url 'index' %}">
         {% csrf_token %}
-        <label for="fname">First Name:</label><br>
-        <input type="text" id="fname" name="fname"><br>
+        <label for="username">Username:</label><br>
+        <input type="text" id="username" name="username"><br>
+        <label for="password">Password:</label><br>
+        <input type="password" id="password" name="password"><br>
         <input type="submit" value="Check">
     </form>
-
-    <!-- Display result based on user input -->
-    {% if person_exists is not None %}
-        {% if person_exists %}
-            <p>YES</p>
-        {% else %}
-            <p>NO</p>
-        {% endif %}
-    {% endif %}
 </body>
 </html>

@@ -10,3 +10,7 @@ class Animal(models.Model):
     type = models.IntegerField()
     id = models.BigAutoField(primary_key=True)
 
+class Admin(models.Model):
+    id = models.AutoField(primary_key=True)
+    name = models.CharField(max_length=255)
+    password = models.CharField(max_length=255)
