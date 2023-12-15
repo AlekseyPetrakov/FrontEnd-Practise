@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Persons List</title>
+</head>
+<body>
+    <h1>Persons List</h1>
+
+    <ul>
+        {% for person in persons %}
+            <li>{{ person.name }}, {{ person.age }}</li>
+        {% endfor %}
+    </ul>
+
+    <h1>Animal List</h1>
+    <ul>
+        {% for animal in animals %}
+            <li>{{ animal.legs }}, {{ animal.type }}, {{ animal.id }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
+
+
+
+
+
+
+<!-- index.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Result</title>
+</head>
+<body>
+    {% if person_exists is not None %}
+        {% if person_exists %}
+            <p>YES</p>
+        {% else %}
+            <p>NO</p>
+        {% endif %}
+    {% endif %}
+</body>
+</html>
+
+
+
+
+
+<!-- persons_list.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Persons List</title>
+</head>
+<body>
+    <h1>Persons List</h1>
+
+    <!-- Display the list of persons -->
+    <ul>
+        {% for person in persons %}
+            <li>{{ person.name }}</li>
+        {% endfor %}
+    </ul>
+
+    <!-- Display the list of animals -->
+    <ul>
+        {% for animal in animals %}
+            <li>{{ animal.name }}</li>
+        {% endfor %}
+    </ul>
+
+    <!-- Form for user input -->
+    <form method="post" action="{% url 'index' %}">
+        {% csrf_token %}
+        <label for="fname">First Name:</label><br>
+        <input type="text" id="fname" name="fname"><br>
+        <input type="submit" value="Check">
+    </form>
+
+    <!-- Display result based on user input -->
+    {% if person_exists is not None %}
+        {% if person_exists %}
+            <p>YES</p>
+        {% else %}
+            <p>NO</p>
+        {% endif %}
+    {% endif %}
+</body>
+</html>
